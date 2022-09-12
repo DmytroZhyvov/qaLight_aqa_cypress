@@ -38,7 +38,7 @@ if (price2 < 1000 || price2 > 1900) {
     console.log('Задача 3.1 - Невірна ціна');
 }
 
-if ( (price2 !== 1000 || price2 !== 1900) && (price2 < 1000 || price2 > 1900) ) {
+if (!(price2 >= 1000 && price2 <= 1900)) {
     console.log(`Задача 3.2 - Все гаразд. Ціна ${price2} не входить в діапазон`);
 } else {
     console.log('Задача 3.2 - Невірна ціна');
@@ -151,7 +151,7 @@ switch (mathSymbol) {
 /*
 8.*  Використовуючи властивості рядків (тип string), та регулярний вираз (regular expression) видалити голосні букви зі слова.
 */
-const str = 'Перевірка видалення голосних букв';
+const str = 'ПЕревІркА вИдалЕннЯ гОлоснИх букв';
 const strNoVowels = str.replace(/[аеєиіїоуюя]/gi, '');
 console.log(`Задача 8 - ${strNoVowels}`);
 
@@ -164,18 +164,23 @@ console.log(`Задача 8 - ${strNoVowels}`);
     https://www.kyivdictionary.com/uk/words/conjugation/?word=%D0%BC%D0%B5%D1%82%D1%80&lang=uk
 */
 
-let m = 12000;
+let m = 15100;
 let km = m/1000;
-lastNum = parseInt(km.toString().slice(-1));
+let lastNum = parseInt(km.toString().slice(-1));
+let ending = '';
 
-if (km === 0 || km >= 5 && km % 1 === 0) {
-    console.log(`Задача 9 - ${m} м - це ${km} кілометрів`);
-} else if (km < 1) {
-    console.log(`Задача 9 - ${m} м - це ${km} кілометра`);
-} else if (km === 1 || lastNum === 1) {
-    console.log(`Задача 9 - ${m} м - це ${km} кілометр`);
-} else if (km > 1 && km < 5 && km % 1 === 0) {
-    console.log(`Задача 9 - ${m} м - це ${km} кілометри`);
+if (lastNum === 1) {
+    ending = '';
+} else if (lastNum > 1 && lastNum < 5){
+    ending = 'и'
+} else if (lastNum === 0 || lastNum >= 5){
+    ending = 'ів'
 }
+
+console.log(`Задача 9 - ${m}м - це ${km} кілометр${ending}`);
+
+
+
+
 
 
